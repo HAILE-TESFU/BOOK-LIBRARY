@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>The Book Lists we have</h1>
+    <form>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Search by boo name" name="bookname" [(ngModel)]="bookName">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Search by Author" name="bookauthor" [(ngModel)]="bookAuthor">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Search by Catagory" name="bookcatagory" [(ngModel)]="bookCatagory">
+            </div>
+        </div>
+    </form>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Book-Name</th>
+                <th scope="col">Book-Author</th>
+                <th scope="col">Book-Catagory</th>
+            </thead>
+            <tbody>
+                <tr class="for-Loop-bookList" *ngFor="let book of bookLists | book:bookName:bookAuthor:bookCatagory" (click)="viewDetail(book.bookName)">
+                    <td class="id">{{book.id}}</td>
+                    <td class="bookName">{{book.bookName}}</td>
+                    <td class="bookAuthor">{{book.bookAuthor}}</td>
+                    <td class="bookCatagory">{{book.bookCatagory}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
